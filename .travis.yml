@@ -41,3 +41,13 @@ jobs:
   allow_failures:
     - python: "3.9-dev"
     - python: "nightly"
+    # added power support arch ppc64le.
+    - stage: wipe_test_account
+      # Wipe contents of the test account after a complete build, to avoid account going over quota
+      script: PYTHONPATH=./ python scripts/wipe_test_account.py
+      python: "3.8"
+      os: linux
+      arch: ppc64le
+  allow_failures:
+    - python: "3.9-dev"
+    - python: "nightly"
